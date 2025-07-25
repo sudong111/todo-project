@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*pages*/
+
+.home {
+    @apply flex justify-center
+}
+
+/*layouts*/
+
+.header {
+    @apply w-full p-4 border border-gray-200 bg-gray-50 text-center;
+}
+
+.footer {
+    @apply bg-gray-200 pb-3 pt-3 flex justify-between items-center md:items-start flex-col-reverse md:flex-row
+}
