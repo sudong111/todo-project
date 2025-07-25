@@ -5,15 +5,25 @@
 /*pages*/
 
 .home {
-    @apply flex justify-center
+    @apply flex h-full justify-center
 }
 
 /*layouts*/
 
 .header {
-    @apply w-full p-4 border border-gray-200 bg-gray-50 text-center;
+    @apply flex w-full h-10 border border-gray-200 bg-gray-50 text-center;
 }
 
 .footer {
-    @apply bg-gray-200 pb-3 pt-3 flex justify-between items-center md:items-start flex-col-reverse md:flex-row
+    @apply fixed w-full bottom-0 bg-gray-200 pb-3 pt-3 flex justify-between
+}
+
+/*components*/
+
+.button {
+    @apply flex-1 h-full pr-3
+}
+
+.title {
+    @apply flex h-full pr-3 items-center
 }
