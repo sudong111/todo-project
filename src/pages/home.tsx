@@ -1,9 +1,9 @@
-import TodoCard from "@/components/ui/todo-card";
+import ScheduleCard from "@/components/ui/schedule-card";
 
 export default function Home() {
     return (
-        <div className='card'>
-            <TodoCard />
+        <div className='home'>
+            <ScheduleCard />
         </div>
     );
 }

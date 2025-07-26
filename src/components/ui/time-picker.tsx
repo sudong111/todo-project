@@ -16,7 +16,7 @@ export default function TimePicker() {
     const [date, setDate] = React.useState<Date | undefined>(undefined)
 
     return (
-        <div className="flex flex-1 gap-4 mt-4">
+        <div className="flex flex-1 gap-4">
             <div className="flex flex-col gap-3 basis-[70%]">
                 <Label htmlFor="date-picker" className="w-full px-1">
                     Date
