@@ -10,13 +10,16 @@ import Dashboard from "./pages/dashboard.tsx";
 export function Router() {
     const page = useSelector((state: RootState) => state.page.currentPage)
     return (
-        <>
+        <div className="h-full flex flex-col">
             <Header />
-            {page === 'home' && <Home />}
-            {page === 'work' && <Work />}
-            {page === 'projects' && <Projects />}
-            {page === 'dashboard' && <Dashboard />}
+            <main className="main">
+                {page === 'home' && <Home />}
+                {page === 'work' && <Work />}
+                {page === 'projects' && <Projects />}
+                {page === 'dashboard' && <Dashboard />}
+            </main>
+
             <Footer />
-        </>
+        </div>
     )
 }
