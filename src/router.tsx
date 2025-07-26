@@ -1,11 +1,11 @@
 import {useSelector} from "react-redux";
-import type {RootState} from "./ci/store.ts";
-import Header from "./components/layouts/header.tsx";
-import Home from "./pages/home.tsx";
-import Work from "./pages/work.tsx";
-import Footer from "./components/layouts/footer.tsx";
-import Projects from "./pages/projects.tsx";
-import Dashboard from "./pages/dashboard.tsx";
+import type {RootState} from "./ci/store";
+import Header from "./components/layouts/header";
+import Home from "./pages/home";
+import Footer from "./components/layouts/footer";
+import Calendar from "./pages/calendar";
+import Dashboard from "./pages/dashboard";
+import Setting from "@/pages/setting";
 import { SidebarProvider, SidebarTrigger } from "@/components/shadcn-ui/sidebar"
 import { AppSidebar } from "@/components/ui/app-sidebar"
 
@@ -18,10 +18,10 @@ export function Router() {
                     <SidebarProvider>
                         <AppSidebar />
                         <SidebarTrigger />
-                    {page === 'home' && <Home />}
-                    {page === 'work' && <Work />}
-                    {page === 'projects' && <Projects />}
-                    {page === 'dashboard' && <Dashboard />}
+                        {page === 'home' && <Home />}
+                        {page === 'calendar' && <Calendar />}
+                        {page === 'dashboard' && <Dashboard />}
+                        {page === 'setting' && <Setting />}
                     </SidebarProvider>
                 </main>
             <Footer />

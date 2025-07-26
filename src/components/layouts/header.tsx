@@ -8,11 +8,11 @@ export default function Header() {
 
     return (
         <div className='header'>
-            <Button variant="ghost" className="title" onClick={handleClick('home')}>To-Do</Button>
+            <Button variant="ghost" className="title" onClick={handleClick('home')}>Home</Button>
             <div>
-                <Button variant="ghost" className="button" onClick={handleClick('work')}>나의 업무</Button>
-                <Button variant="ghost" className="button" onClick={handleClick('projects')}>프로젝트</Button>
-                <Button variant="ghost" className="button" onClick={handleClick('dashboard')}>대시보드</Button>
+                <Button variant="ghost" className="button" onClick={handleClick('calendar')}>Calendar</Button>
+                <Button variant="ghost" className="button" onClick={handleClick('dashboard')}>Dashboard</Button>
+                <Button variant="ghost" className="button" onClick={handleClick('setting')}>setting</Button>
             </div>
         </div>
 
