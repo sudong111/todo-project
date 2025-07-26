@@ -44,6 +44,10 @@
     @apply flex flex-col max-w-sm
 }
 
+.tab-list {
+    @apply flex justify-between
+}
+
 .card {
     @apply flex flex-col p-6 w-full max-w-sm m-1
 }

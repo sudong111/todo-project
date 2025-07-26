@@ -19,7 +19,7 @@ export default function TimePicker() {
         <div className="flex flex-1 gap-4">
             <div className="flex flex-col gap-3 basis-[70%]">
                 <Label htmlFor="date-picker" className="w-full px-1">
-                    Date
+                    날짜
                 </Label>
                 <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
@@ -47,7 +47,7 @@ export default function TimePicker() {
             </div>
             <div className="flex flex-col gap-3 basis-[30%]">
                 <Label htmlFor="time-picker" className="px-1">
-                    Time
+                    시간
                 </Label>
                 <Input
                     type="time"

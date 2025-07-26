@@ -1,9 +1,9 @@
-import ScheduleCard from "@/components/ui/schedule-card";
+import Schedule from "@/components/ui/schedule";
 
 export default function Home() {
     return (
         <div className='home'>
-            <ScheduleCard />
+            <Schedule />
         </div>
     );
 }
