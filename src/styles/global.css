@@ -40,6 +40,10 @@
     @apply flex h-full pr-3 font-bold
 }
 
+.tabs {
+    @apply flex flex-col max-w-sm
+}
+
 .card {
     @apply flex flex-col p-6 w-full max-w-sm m-1
 }

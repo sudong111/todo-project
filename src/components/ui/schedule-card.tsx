@@ -19,14 +19,12 @@ import TimePicker from "@/components/ui/time-picker";
 import { Textarea } from "../shadcn-ui/textarea"
 
 export default function ScheduleCard() {
-
     return(
-        <Tabs defaultValue="to-do">
+        <Tabs defaultValue="to-do" className="tabs">
             <TabsList>
                 <TabsTrigger value="to-do">To-do</TabsTrigger>
                 <TabsTrigger value="project">Project</TabsTrigger>
             </TabsList>
-
             <Card className="card">
                 <TabsContent value="to-do" className="tab-content">
                     <CardHeader>
@@ -65,7 +63,6 @@ export default function ScheduleCard() {
                         </Button>
                     </CardFooter>
                 </TabsContent>
-
                 <TabsContent value="project" className="tab-content">
                     <CardHeader>
                         <CardTitle>프로젝트 저장</CardTitle>
