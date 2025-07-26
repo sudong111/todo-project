@@ -15,19 +15,17 @@ export function Router() {
     return (
         <div className="h-full flex flex-col">
             <Header />
+            <SidebarProvider>
+                <AppSidebar />
                 <main className="main">
-                    <SidebarProvider>
-                        <AppSidebar />
-                        <SidebarTrigger />
-                        <div className="page-header">
-                            {page === 'home' && <Home />}
-                            {page === 'calendar' && <Calendar />}
-                            {page === 'dashboard' && <Dashboard />}
-                            {page === 'setting' && <Setting />}
-                            <Button variant="todo" className="todo-button">일정 추가</Button>
-                        </div>
-                    </SidebarProvider>
+                    <SidebarTrigger className="sidebar-trigger" />
+                    <Button variant="todo" className="todo-button">일정 추가</Button>
+                    {page === 'home' && <Home />}
+                    {page === 'calendar' && <Calendar />}
+                    {page === 'dashboard' && <Dashboard />}
+                    {page === 'setting' && <Setting />}
                 </main>
+            </SidebarProvider>
             <Footer />
         </div>
     )

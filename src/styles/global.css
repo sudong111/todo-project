@@ -4,8 +4,8 @@
 
 /*pages*/
 
-.home .calendar .dashboard .setting {
-    @apply flex h-full flex-col justify-between m-2;
+.home{
+    @apply flex flex-1 h-full flex-col justify-between m-2;
 }
 
 /*layouts*/
@@ -78,6 +78,10 @@
 
 .card-footer {
     @apply flex-col gap-2
+}
+
+.sidebar-trigger {
+    @apply mr-2 ml-2
 }
 
 /*---break---*/
