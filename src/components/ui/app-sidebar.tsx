@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Calendar, Home, Settings, ChartPie } from "lucide-react"
 import {
     Sidebar,
@@ -11,32 +12,29 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/shadcn-ui/sidebar"
-
+import { setPage } from "@/ci/pages/slice"
 // Menu items.
 const items = [
     {
         title: "Home",
-        url: "#",
         icon: Home,
     },
     {
         title: "Calendar",
-        url: "#",
         icon: Calendar,
     },
     {
         title: "Dashboard",
-        url: "#",
         icon: ChartPie,
     },
     {
-        title: "Settings",
-        url: "#",
+        title: "Setting",
         icon: Settings,
     },
 ]
 
 export function AppSidebar() {
+    const dispatch = useDispatch()
     return (
         <Sidebar>
             <SidebarHeader />
@@ -48,10 +46,12 @@ export function AppSidebar() {
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url}>
+                                        <button
+                                            onClick={() => dispatch(setPage(item.title.toLowerCase()))}
+                                        >
                                             <item.icon />
                                             <span>{item.title}</span>
-                                        </a>
+                                        </button>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             ))}
