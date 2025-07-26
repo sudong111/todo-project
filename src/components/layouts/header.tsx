@@ -8,11 +8,11 @@ export default function Header() {
 
     return (
         <div className='header'>
-            <Button variant="ghost" className="title" onClick={handleClick('home')}>Home</Button>
+            <Button variant="header" onClick={handleClick('home')}>Home</Button>
             <div>
-                <Button variant="ghost" className="button" onClick={handleClick('calendar')}>Calendar</Button>
-                <Button variant="ghost" className="button" onClick={handleClick('dashboard')}>Dashboard</Button>
-                <Button variant="ghost" className="button" onClick={handleClick('setting')}>setting</Button>
+                <Button variant="header" onClick={handleClick('calendar')}>Calendar</Button>
+                <Button variant="header" onClick={handleClick('dashboard')}>Dashboard</Button>
+                <Button variant="header" onClick={handleClick('setting')}>setting</Button>
             </div>
         </div>
 

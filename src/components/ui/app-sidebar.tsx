@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Calendar, Home, Settings, ChartPie } from "lucide-react"
 import {
     Sidebar,

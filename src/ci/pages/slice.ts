@@ -5,7 +5,7 @@ interface PageState {
 }
 
 const initialState: PageState = {
-    currentPage: 'home', // 기본 페이지
+    currentPage: 'home',
 }
 
 const pageSlice = createSlice({

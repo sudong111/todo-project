@@ -26,6 +26,10 @@
     @apply flex w-full h-10 bg-gray-200 justify-between;
 }
 
+.page-header {
+    @apply flex w-full;
+}
+
 /*components*/
 
 .button {
