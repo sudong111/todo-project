@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { setPage } from '../../ci/pages/slice'
+import { Button } from '@/components/shadcn-ui/button'
 
 export default function Header() {
     const dispatch = useDispatch()
@@ -7,11 +8,11 @@ export default function Header() {
 
     return (
         <div className='header'>
-            <button className='title' onClick={handleClick('home')}>업무관리</button>
+            <Button variant="ghost" className="title" onClick={handleClick('home')}>To-Do</Button>
             <div>
-                <button className='button' onClick={handleClick('work')}>나의 업무</button>
-                <button className='button' onClick={handleClick('projects')}>프로젝트</button>
-                <button className='button' onClick={handleClick('dashboard')}>대시보드</button>
+                <Button variant="ghost" className="button" onClick={handleClick('home')}>나의 업무</Button>
+                <Button variant="ghost" className="button" onClick={handleClick('home')}>프로젝트</Button>
+                <Button variant="ghost" className="button" onClick={handleClick('home')}>대시보드</Button>
             </div>
         </div>
 

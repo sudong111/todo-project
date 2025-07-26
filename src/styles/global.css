@@ -37,11 +37,11 @@
 }
 
 .title {
-    @apply flex h-full pr-3 items-center
+    @apply flex h-full pr-3 font-bold
 }
 
 .card {
-    @apply w-full max-w-sm;
+    @apply flex m-2;
 }
 
 /*---break---*/
