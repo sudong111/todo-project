@@ -4,7 +4,6 @@ import Header from "@/components/layouts/header";
 import Home from "@/pages/home";
 import Footer from "@/components/layouts/footer";
 import Calendar from "@/pages/calendar";
-import Dashboard from "@/pages/dashboard";
 import Setting from "@/pages/setting";
 import { SidebarProvider, SidebarTrigger } from "@/components/shadcn-ui/sidebar"
 import { AppSidebar } from "@/components/ui/app-sidebar"
@@ -35,7 +34,6 @@ export function Router() {
                     </div>
                     {page === 'home' && <Home />}
                     {page === 'calendar' && <Calendar />}
-                    {page === 'dashboard' && <Dashboard />}
                     {page === 'setting' && <Setting />}
                 </main>
             </SidebarProvider>

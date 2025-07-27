@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { Calendar, Home, Settings, ChartPie } from "lucide-react"
+import { Calendar, Home, Settings } from "lucide-react"
 import {
     Sidebar,
     SidebarHeader,
@@ -22,10 +22,6 @@ const items = [
     {
         title: "Calendar",
         icon: Calendar,
-    },
-    {
-        title: "Dashboard",
-        icon: ChartPie,
     },
     {
         title: "Setting",

@@ -11,7 +11,6 @@ export default function Header() {
             <Button variant="header" onClick={handleClick('home')}>Home</Button>
             <div>
                 <Button variant="header" onClick={handleClick('calendar')}>Calendar</Button>
-                <Button variant="header" onClick={handleClick('dashboard')}>Dashboard</Button>
                 <Button variant="header" onClick={handleClick('setting')}>setting</Button>
             </div>
         </div>

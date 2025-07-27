@@ -4,8 +4,12 @@
 
 /*pages*/
 
-.home{
+.home {
     @apply flex flex-1 h-full flex-row justify-between m-2;
+}
+
+.calendar {
+    @apply flex flex-1 h-full flex-col m-2;
 }
 
 /*layouts*/
@@ -86,6 +90,10 @@
 
 .badge {
     @apply mr-2 cursor-pointer
+}
+
+.date-picker {
+    @apply flex justify-center
 }
 /*---break---*/
 
