@@ -80,6 +80,13 @@
     @apply w-full p-2
 }
 
+.todo-button {
+    @apply ml-2 mr-2
+}
+
+.badge {
+    @apply mr-2 cursor-pointer
+}
 /*---break---*/
 
 @layer base {

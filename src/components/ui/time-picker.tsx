@@ -10,7 +10,11 @@ import {
     PopoverTrigger,
 } from "@/components/shadcn-ui/popover"
 
-export default function TimePicker() {
+interface timePickerProps {
+    disabled : boolean
+}
+
+export default function TimePicker({disabled} : timePickerProps) {
 
     const [open, setOpen] = React.useState(false)
     const [date, setDate] = React.useState<Date | undefined>(undefined)
@@ -27,6 +31,7 @@ export default function TimePicker() {
                             variant="outline"
                             id="date-picker"
                             className="w-full justify-between font-normal"
+                            disabled={disabled}
                         >
                             {date ? date.toLocaleDateString() : "Select date"}
                             <ChevronDownIcon />
