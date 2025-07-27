@@ -6,9 +6,9 @@ import { store } from './ci/store'
 import { Router } from './router'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  // <StrictMode>
       <Provider store={store}>
           <Router />
       </Provider>
-  </StrictMode>,
+  // </StrictMode>,
 )

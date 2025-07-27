@@ -9,17 +9,17 @@
 }
 
 .calendar {
-    @apply flex flex-1 h-full flex-col m-2;
+    @apply flex flex-1 h-full flex-col;
 }
 
 /*layouts*/
 
-.main {
-    @apply flex-1 h-full;
+.body {
+    @apply h-full flex flex-col;
 }
 
-.body {
-    @apply h-full flex flex-col
+.main {
+    @apply flex-1 h-full;
 }
 
 .header {
@@ -37,15 +37,15 @@
 /*components*/
 
 .button {
-    @apply flex-1 h-full pr-3
+    @apply flex-1 h-full pr-3;
 }
 
 .todo-box {
-    @apply m-2 p-2 border rounded border-black
+    @apply m-2 p-2 border rounded border-black;
 }
 
 .title {
-    @apply flex h-full pr-3 font-bold
+    @apply flex h-full pr-3 font-bold;
 }
 
 .label {
@@ -53,47 +53,59 @@
 }
 
 .card {
-    @apply flex flex-col p-6 w-full max-w-sm mt-4
+    @apply flex flex-col p-6 w-full max-w-sm mt-4;
 }
 
 .card-form {
-    @apply flex flex-col gap-4
+    @apply flex flex-col gap-4;
 }
 
 .card-to-do {
-    @apply flex flex-col gap-6
+    @apply flex flex-col gap-6;
 }
 
 .card-detail {
-    @apply flex flex-col gap-6 mt-3
+    @apply flex flex-col gap-6 mt-3;
 }
 
 .card-input {
-    @apply grid gap-2
+    @apply grid gap-2;
 }
 
 .card-footer {
-    @apply flex-col gap-2
+    @apply flex-col gap-2;
 }
 
 .sidebar-trigger {
-    @apply mr-2 ml-2
+    @apply mr-2 ml-2;
 }
 
 .days {
-    @apply w-full p-2
+    @apply w-full p-2;
 }
 
 .todo-button {
-    @apply ml-2 mr-2
+    @apply ml-2 mr-2;
 }
 
 .badge {
-    @apply mr-2 cursor-pointer
+    @apply mr-2 cursor-pointer;
 }
 
 .date-picker {
-    @apply flex justify-center
+    @apply flex justify-center mb-2;
+}
+
+.date-picker-button {
+    @apply bg-white mr-2 hover:bg-gray-100;
+}
+
+.cell {
+    @apply cursor-pointer hover:bg-gray-50;
+}
+
+.cell-gray {
+    @apply bg-gray-100;
 }
 /*---break---*/
 
