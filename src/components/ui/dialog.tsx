@@ -13,14 +13,25 @@ import { Input } from "@/components/shadcn-ui/input"
 import { Label } from "@/components/shadcn-ui/label"
 import {Textarea} from "@/components/shadcn-ui/textarea"
 import { Badge } from "@/components/shadcn-ui/badge"
-import { useState } from "react"
+import {useRef, useState } from "react"
 import TimePicker from "@/components/ui/time-picker";
+import {scheduleDto} from "@/dto/schedule.dto";
 
 
 
 export default function DialogUI() {
     const [selectedBadge, setSelectedBadge] = useState<string | "outline">();
     const [disabledDatePicker, setDisableDatePicker] = useState<boolean>(false);
+    const [schedule, setShcedule] = useState<scheduleDto>({
+            title: '',
+            detail: '',
+            date: '',
+            time: '',
+            category: '',
+        }
+    );
+    const scheduleRef = useRef<scheduleDto>(schedule);
+
 
     const handleClickedBadge = (id: string) => {
         setSelectedBadge(prev => (prev === id ? "outline" : id));
@@ -30,11 +41,17 @@ export default function DialogUI() {
         else {
             setDisableDatePicker(true);
         }
+        scheduleRef.current.category = id;
     };
+
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+
+    }
 
     return (
         <Dialog>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <DialogTrigger asChild>
                     <Button variant="create" className="todo-button">일정 추가</Button>
                 </DialogTrigger>
@@ -52,6 +69,9 @@ export default function DialogUI() {
                                 id="to-do"
                                 type="text"
                                 placeholder="코딩 스터디 그룹 가기"
+                                onBlur={(e) => {
+                                    scheduleRef.current.title = e.target.value;
+                                }}
                                 required
                             />
                         </div>
@@ -60,11 +80,14 @@ export default function DialogUI() {
                             <Textarea
                                 id="detail"
                                 placeholder="장소 : 역삼역 2번 출구 카페"
+                                onBlur={(e) => {
+                                    scheduleRef.current.detail = e.target.value;
+                                }}
                                 className="resize-none"
                             />
                         </div>
                         <div className="grid gap-3">
-                            <Label htmlFor="check">종류</Label>
+                            <Label htmlFor="category">종류</Label>
                             <div className="flex">
                                 {["everyday", "weekdays", "weekend", "special"].map((id) => (
                                     <Badge
@@ -81,6 +104,7 @@ export default function DialogUI() {
                         <div className="grid gap-3">
                             <TimePicker
                                 disabled = {disabledDatePicker}
+                                data = {scheduleRef.current}
                             />
                         </div>
                     </div>

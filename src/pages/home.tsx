@@ -2,8 +2,14 @@ import Schedule from "@/components/ui/schedule";
 import {Label} from "@/components/shadcn-ui/label";
 import {Accordion, AccordionItem, AccordionTrigger} from "@/components/shadcn-ui/accordion";
 import { AccordionContent } from "@radix-ui/react-accordion";
+import {scheduleDto} from "@/dto/schedule.dto";
 
-export default function Home() {
+interface scheduleProps {
+    dataParams: scheduleDto;
+}
+
+export default function Home({dataParams} : scheduleProps) {
+    console.log("dateParams : " + dataParams);
     return (
         <div className='home'>
             <div className='days'>

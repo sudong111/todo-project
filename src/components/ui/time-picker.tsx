@@ -9,12 +9,14 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/shadcn-ui/popover"
+import {scheduleDto} from "@/dto/schedule.dto";
 
 interface timePickerProps {
     disabled : boolean
+    data : scheduleDto
 }
 
-export default function TimePicker({disabled} : timePickerProps) {
+export default function TimePicker({disabled, data} : timePickerProps) {
 
     const [open, setOpen] = React.useState(false)
     const [date, setDate] = React.useState<Date | undefined>(undefined)
@@ -32,6 +34,12 @@ export default function TimePicker({disabled} : timePickerProps) {
                             id="date-picker"
                             className="w-full justify-between font-normal"
                             disabled={disabled}
+                            onChange={() => {
+                                console.log("date change")
+                            }}
+                            onBlur={(e) => {
+                                data.date = e.target.value;
+                            }}
                         >
                             {date ? date.toLocaleDateString() : "Select date"}
                             <ChevronDownIcon />
@@ -60,6 +68,9 @@ export default function TimePicker({disabled} : timePickerProps) {
                     step="60"
                     defaultValue="10:30"
                     className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+                    onBlur={(e) => {
+                        data.time = e.target.value;
+                    }}
                 />
             </div>
         </div>
