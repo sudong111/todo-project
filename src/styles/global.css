@@ -5,7 +5,7 @@
 /*pages*/
 
 .home{
-    @apply flex flex-1 h-full flex-col justify-between m-2;
+    @apply flex flex-1 flex-row justify-between m-2;
 }
 
 /*layouts*/
@@ -44,20 +44,12 @@
     @apply flex h-full pr-3 font-bold
 }
 
-.tabs {
-    @apply flex flex-col max-w-sm
-}
-
-.tab-list {
-    @apply flex justify-between
+.label {
+    @apply text-sm ml-2;
 }
 
 .card {
-    @apply flex flex-col p-6 w-full max-w-sm m-1
-}
-
-.tab-content {
-    @apply flex flex-col gap-4
+    @apply flex flex-col p-6 w-full max-w-sm m-4
 }
 
 .card-form {
@@ -82,6 +74,10 @@
 
 .sidebar-trigger {
     @apply mr-2 ml-2
+}
+
+.days {
+    @apply w-full p-2
 }
 
 /*---break---*/
