@@ -5,7 +5,7 @@
 /*pages*/
 
 .home{
-    @apply flex flex-1 flex-row justify-between m-2;
+    @apply flex flex-1 h-full flex-row justify-between m-2;
 }
 
 /*layouts*/
@@ -19,7 +19,7 @@
 }
 
 .header {
-    @apply flex w-full h-10 border  bg-blue-200 text-center;
+    @apply flex w-full h-10 border  bg-gray-100 text-center;
 }
 
 .footer {
@@ -49,7 +49,7 @@
 }
 
 .card {
-    @apply flex flex-col p-6 w-full max-w-sm m-4
+    @apply flex flex-col p-6 w-full max-w-sm mt-4
 }
 
 .card-form {

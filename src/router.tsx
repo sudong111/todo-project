@@ -23,8 +23,8 @@ export function Router() {
                 <Header />
             <SidebarProvider>
                 <AppSidebar />
-                <main className="main">
-                    <div className="flex">
+                <main className="flex flex-1 flex-col">
+                    <div className="flex mt-2">
                     <SidebarTrigger className="sidebar-trigger" />
                     <Dialog />
                     <Button variant="delete"

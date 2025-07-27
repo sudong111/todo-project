@@ -9,7 +9,7 @@ export default function Home() {
             <div className='days'>
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>
+                        <AccordionTrigger className="mr-2">
                             <Label className='label'>everyday</Label>
                         </AccordionTrigger>
                         <AccordionContent>
@@ -30,7 +30,7 @@ export default function Home() {
             <div className='days'>
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>
+                        <AccordionTrigger className="mr-2">
                             <Label className='label'>weekdays</Label>
                         </AccordionTrigger>
                         <AccordionContent>
@@ -46,7 +46,7 @@ export default function Home() {
                             />
                             <Schedule
                                 title="개인 프로젝트 구현"
-                                detail="프로젝트 명 : Todd-project"
+                                detail="프로젝트 명 : Todo-project"
                                 time="22:00 - 23:00"
                             />
                         </AccordionContent>
@@ -56,7 +56,7 @@ export default function Home() {
             <div className='days'>
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>
+                        <AccordionTrigger className="mr-2">
                             <Label className='label'>weekend</Label>
                         </AccordionTrigger>
                         <AccordionContent>
@@ -77,7 +77,7 @@ export default function Home() {
             <div className='days'>
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>
+                        <AccordionTrigger className="mr-2">
                             <Label className='label'>special</Label>
                         </AccordionTrigger>
                         <AccordionContent>
