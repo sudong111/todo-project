@@ -5,11 +5,12 @@ interface scheduleProps {
     title : string;
     detail : string;
     time : string;
+    color : string;
 }
 
-export default function Schedule({title, detail, time} : scheduleProps) {
+export default function Schedule({title, detail, time, color} : scheduleProps) {
     return(
-        <Card className="card">
+        <Card className={"card " + color}>
             <CardHeader>
                 <CardTitle>{title}</CardTitle>
             </CardHeader>
