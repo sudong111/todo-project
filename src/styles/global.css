@@ -101,7 +101,7 @@
 }
 
 .cell {
-    @apply cursor-pointer hover:bg-gray-50;
+    @apply cursor-pointer  hover:bg-gray-50;
 }
 
 .cell-gray {

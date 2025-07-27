@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/shadcn-ui/button"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import {useState, useEffect} from "react";
+import {scheduleDto} from "@/dto/schedule.dto";
 
 export function CalendarUI() {
     const [date, setDate] = useState<Date>(new Date())
@@ -28,6 +29,56 @@ export function CalendarUI() {
     const [firstDayIndex, setFirstDayIndex] = useState<number>(0);
     const [lastDayIndex, setLastDayIndex] = useState<number>(0);
     const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const scheduleList: scheduleDto[] = [
+        {
+            title: "개인 프로젝트 개발",
+            detail: "09:00 - 18:00",
+            date: "2025-07-28",
+            time: "09:00",
+            category: "everyday",
+            color: "bg-green-100"
+        },
+        {
+            title: "헬스장 가기",
+            detail: "장소: 피트니스 24",
+            date: "2025-07-30",
+            time: "20:00",
+            category: "everyday",
+            color: "bg-red-100"
+        },
+        {
+            title: "스터디 참여",
+            detail: "토익 스터디 오후 3시 / 장소: 신촌",
+            date: "2025-07-29",
+            time: "15:00",
+            category: "weekdays",
+            color: "bg-yellow-100"
+        },
+        {
+            title: "자기계발 독서",
+            detail: "책: 프로그래머의 뇌",
+            date: "2025-08-02",
+            time: "09:00",
+            category: "weekend",
+            color: "bg-blue-100"
+        },
+        {
+            title: "저녁 약속",
+            detail: "장소 : 강남역",
+            date: "2025-07-19",
+            time: "20:00",
+            category: "special",
+            color: "bg-orange-100"
+        },
+        {
+            title: "저녁 코딩 특강",
+            detail: "장소 : 논현",
+            date: "2025-07-03",
+            time: "20:00",
+            category: "special",
+            color: "bg-orange-100"
+        },
+    ];
 
     // 윤달 계산
     function isLeapYear(year: number) {
@@ -88,7 +139,6 @@ export function CalendarUI() {
     }
 
     function handleClickedDatePickButton(prev: boolean) {
-        console.log("here " + selectedValue)
         setSelectedValue(
             prev && selectedValue[1] === 1 ? [selectedValue[0] - 1, 12] :
                 prev ? [selectedValue[0], selectedValue[1] - 1] :
@@ -98,10 +148,9 @@ export function CalendarUI() {
 
     }
 
-    console.log(selectedValue)
-
     useEffect(() => {
         getCalendarDate();
+
     }, selectedValue);
 
     return (
@@ -192,19 +241,50 @@ export function CalendarUI() {
                                                 key={colIndex}
                                                 className={`cell ${textColor} ${isGray ? "cell-gray" : ""}`}
                                             >
-                                                {/* 날짜 표시 */}
                                                 <div className="font-bold">{day}</div>
 
-                                                {/* 일정 5칸 구성 */}
                                                 <div className="flex flex-col space-y-1 mt-1">
-                                                    {Array.from({ length: 5 }).map((_, i) => (
-                                                        <div
-                                                            key={i}
-                                                            className="w-full"
-                                                        >
-                                                            {/* 여기에 일정 텍스트 or 컴포넌트 넣을 수 있음 */}
-                                                        </div>
-                                                    ))}
+                                                    {(() => {
+                                                        const fullDate = `${selectedValue[0]}-${String(isGray && Number(day) > 22 ?
+                                                            selectedValue[1] - 1 :
+                                                            isGray && Number(day) < 7 ?
+                                                            selectedValue[1] + 1 :
+                                                            selectedValue[1]).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+                                                        const thisDate = new Date(fullDate);
+                                                        const dayOfWeek = thisDate.getDay(); // 0 (일) ~ 6 (토)
+
+                                                        const matchedSchedules = scheduleList
+                                                            .filter((item) => {
+                                                                if (item.category === "everyday") return true;
+                                                                if (item.category === "weekdays") return dayOfWeek >= 1 && dayOfWeek <= 5;
+                                                                if (item.category === "weekend") return dayOfWeek === 0 || dayOfWeek === 6;
+                                                                if (item.category === "special") return item.date === fullDate;
+                                                                return false;
+                                                            })
+                                                            .sort((a, b) => {
+                                                                const priority = (category: string) => {
+                                                                    if (category === "everyday") return 0;
+                                                                    if (category === "weekdays" || category === "weekend") return 1;
+                                                                    if (category === "special") return 2;
+                                                                    return 3;
+                                                                };
+                                                                const prioA = priority(a.category);
+                                                                const prioB = priority(b.category);
+                                                                if (prioA !== prioB) return prioA - prioB;
+                                                                return a.time.localeCompare(b.time); // 같은 우선순위면 시간순 정렬
+                                                            })
+                                                            .slice(0, 5); // 최대 5개까지만 표시
+
+                                                        return Array.from({ length: 5 }).map((_, i) => (
+                                                            matchedSchedules[i] != undefined && !isGray ?
+                                                            <div key={i} className={"h-4 w-full truncate text-[10px] leading-4 font-medium text-black " + matchedSchedules[i].color}>
+                                                                {matchedSchedules[i] && `${matchedSchedules[i].title} (${matchedSchedules[i].time})`}
+                                                            </div> :
+                                                                <div key={i} className={"h-4 w-full truncate text-[10px] leading-4 font-medium text-black "}>
+                                                                    {matchedSchedules[i] && `${matchedSchedules[i].title} (${matchedSchedules[i].time})`}
+                                                                </div>
+                                                        ));
+                                                    })()}
                                                 </div>
                                             </TableCell>
                                         );

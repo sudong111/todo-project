@@ -4,4 +4,5 @@ export interface scheduleDto {
     date : string;
     time : string;
     category : string;
+    color: string;
 }
